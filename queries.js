@@ -1,11 +1,15 @@
+// Older code for crud using Pool
+const dotenv = require("dotenv");
+dotenv.config();
+
 const Pool = require("pg").Pool;
 
 const pool = new Pool({
     user: "me",
     host: "localhost",
-    database: "api",
-    password: "password",
-    port: 5432,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
 });
 
 const getUsers = (request, response) => {
